@@ -1,4 +1,6 @@
 version: '3'
+volumes:
+  pgdata:
 services:
   init:
     image: busybox
@@ -92,7 +94,7 @@ services:
       - POSTGRES_USER
       - POSTGRES_DB
     volumes:
-      - ./local-data/postgres:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
 
   elasticsearch:
     image: elasticsearch:7.8.1
